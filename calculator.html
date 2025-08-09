@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+
+<body>
+        <div class="main">
+            <input class="box1" id="box" placeholder="0">
+            <div class="buttons">
+                <button onclick="cl('DL')">AC</button>
+                <button onclick="del()">DEL</button>
+                <button onclick="desplay('%')">%</button>
+                <button onclick="desplay('/')">/</button>
+                <button onclick="desplay('7')">7</button>
+                <button onclick="desplay('8')">8</button>
+                <button onclick="desplay('9')">9</button>
+                <button onclick="desplay('*')">x</button>
+                <button onclick="desplay('4')">4</button>
+                <button onclick="desplay('5')">5</button>
+                <button onclick="desplay('6')">6</button>
+                <button onclick="desplay('-')">-</button>
+                <button onclick="desplay('1')">1</button>
+                <button onclick="desplay('2')">2</button>
+                <button onclick="desplay('3')">3</button>
+                <button onclick="desplay('+')">+</button>
+                <button onclick="desplay('0')">0</button>
+                <button onclick="desplay('.')">.</button>
+                <button onclick="desplayresult()">=</button>
+            </div>
+        </div>
+    <script>
+        let box = document.getElementById("box")
+        function desplay(input) {
+            box.value += input
+        }
+        function desplayresult() {
+            try {
+                box.value = eval(box.value)
+            }
+            catch (err) {
+                box.value = "ERROR"
+            }
+        }
+        function cl() {
+            box.value = ""
+        }
+        function del() {
+            box.value = box.value.slice(0, -1)
+        }
+    </script>
+</body>
+
+</html>
